@@ -1,0 +1,211 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg-light: #FFFFFF;
+    --color-text-main: #1E1E1E;
+    --color-section-bg: #F4F6F8;
+    --color-accent: #00E676;
+    --color-accent-hover: #00B359;
+    --color-border: #E0E0E0;
+
+    --font-family-base: 'Segoe UI', Arial, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1.25rem;
+    --font-size-lg: 1.75rem;
+    --font-size-xl: 2.25rem;
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+    --transition-speed: 0.3s ease;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY & LINKS
+   ========================================================================== */
+h1, h2, h3, h4 {
+    color: var(--color-text-main);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+h1 { font-size: var(--font-size-xl); }
+h2 { font-size: var(--font-size-lg); }
+h3 { font-size: var(--font-size-md); }
+
+p {
+    margin-bottom: var(--spacing-md);
+}
+
+a {
+    color: var(--color-text-main);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover, a:focus {
+    color: var(--color-accent);
+}
+
+a:active {
+    color: var(--color-accent-hover);
+}
+
+/* ==========================================================================
+   3. LAYOUT & NAVIGATION
+   ========================================================================== */
+header, footer {
+    background-color: var(--color-text-main);
+    color: #FFFFFF;
+    padding: var(--spacing-md) var(--spacing-lg);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #FFFFFF;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
+
+main {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: var(--spacing-lg) auto;
+}
+
+section {
+    background-color: var(--color-section-bg);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ==========================================================================
+   4. GRID LAYOUTS & FORMS
+   ========================================================================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+.card {
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    border-radius: 6px;
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+form p {
+    margin-bottom: var(--spacing-md);
+}
+
+label {
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: var(--spacing-sm);
+    margin-top: 0.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+}
+
+button, .btn {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-text-main);
+    font-weight: 600;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+button:hover, .btn:hover {
+    background-color: var(--color-accent-hover);
+}
+
+footer {
+    text-align: center;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   5. MEDIA QUERIES (RESPONSIVENESS)
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 { font-size: var(--font-size-lg); }
+    h2 { font-size: var(--font-size-md); }
+}
